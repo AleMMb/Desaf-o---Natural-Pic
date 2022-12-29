@@ -18,7 +18,8 @@ export default function App() {
         id: imagen.id,
         size: imagen.src.large,
         descripcion: imagen.alt,
-        creator: imagen.photographer
+        creator: imagen.photographer,
+        favorito: imagen.liked
       }));
       setImagenes(dataImagenesParaUsar)
  } catch (e) {
@@ -33,7 +34,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <MyContext.Provider value = {{imagenes, setImagenes}}>
+      <MyContext.Provider value = {{imagenes, setImagenes }}>
         <BrowserRouter>
           <Navbar />
 

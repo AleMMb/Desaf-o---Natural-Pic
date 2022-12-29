@@ -5,7 +5,7 @@ import MyContext from "../context"
 
 
 function Galeria() {
-  const { imagenes, setImagenes } = useContext(MyContext)
+  const { imagenes, setImagenes} = useContext(MyContext)
   
 
   
@@ -13,6 +13,8 @@ function Galeria() {
     const imagenesIndex = imagenes.findIndex((e) => e.id === id);
     imagenes[imagenesIndex].liked = !imagenes[imagenesIndex].liked
     setImagenes([...imagenes])
+    console.log(imagenes)
+
   }
 
 
@@ -20,8 +22,8 @@ function Galeria() {
     <div className="galeria grid-columns-5 p-3">
        {imagenes.map((e) => (
         <div className="galeria-img" onClick={() => favoritos(e.id)} key={e.id} style={{ backgroundImage: `url(${e.size})`, backgroundSize:`cover` }} >
-          <Heart filled={e.liked} />
           <p> {e.descripcion} </p>
+          <Heart filled={e.liked}/>
         </div>
       ))}
     </div>
